@@ -30,7 +30,7 @@ SRC_BRANCH="${SRC_BRANCH:-asahi-arm-$(echo "$KREL" | grep -oE '^[0-9]+\.[0-9]+')
 
 log "Kernel: $KREL"
 case "$KREL" in
-  *-asahi*) : ;;
+  *asahi*) : ;;
   *) die "This is not an Asahi kernel ($KREL)." ;;
 esac
 grep -qai apple /proc/device-tree/compatible 2>/dev/null || warn "Could not confirm Apple hardware; continuing anyway."

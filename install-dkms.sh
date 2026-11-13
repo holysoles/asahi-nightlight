@@ -19,7 +19,7 @@ VER="1.0"
 SRC="/usr/src/${NAME}-${VER}"
 
 [ "$(id -u)" -ne 0 ] || die "Do not run as root: colord setup needs your user session (this script uses sudo where needed)."
-case "$KREL" in *-asahi*) : ;; *) die "This is not an Asahi kernel ($KREL)." ;; esac
+case "$KREL" in *asahi*) : ;; *) die "This is not an Asahi kernel ($KREL)." ;; esac
 command -v dkms >/dev/null || die "dkms not installed. Run: sudo apt install dkms"
 [ -d "/lib/modules/${KREL}/build" ] || die "Kernel headers missing. Install: sudo apt install linux-headers-$KREL"
 for t in git make gcc; do command -v "$t" >/dev/null || die "Missing tool: $t"; done
